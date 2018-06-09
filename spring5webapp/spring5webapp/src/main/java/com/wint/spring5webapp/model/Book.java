@@ -10,6 +10,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
 
 @Entity
 public class Book 
@@ -19,7 +20,6 @@ public class Book
 	private Long id;
 	private String title;
 	private String isbn;
-	private String publisher;
 	
 	@ManyToMany
 	@JoinTable(name = "author_book", 
@@ -27,17 +27,27 @@ public class Book
 	inverseJoinColumns = @JoinColumn(name = "author_id"))
 	private Set<Author> authors = new HashSet<>();
 	
+	@ManyToOne
+	@JoinTable(name = "publisher_book",
+	joinColumns = @JoinColumn(name = "book_id"),
+	inverseJoinColumns = @JoinColumn(name = "publisher_id"))
+	Publisher publisher;
+	
 	public Book() {}
 
-	public Book(String title, String isbn, String publisher) {
+	public Book(String title, String isbn) {
 		this.title = title;
 		this.isbn = isbn;
-		this.publisher = publisher;
 	}
 
-	public Book(String title, String isbn, String publisher, Set<Author> authors) {
-		this(title, isbn, publisher);
+	public Book(String title, String isbn, Set<Author> authors) {
+		this(title, isbn);
 		this.authors = authors;
+	}
+	
+	public Book(String title, String isbn, Set<Author> authors, Publisher publisher) {
+		this(title, isbn, authors);
+		this.publisher = publisher;
 	}
 
 	public Long getId() {
@@ -64,20 +74,28 @@ public class Book
 		this.isbn = isbn;
 	}
 
-	public String getPublisher() {
-		return publisher;
-	}
-
-	public void setPublisher(String publisher) {
-		this.publisher = publisher;
-	}
-
 	public Set<Author> getAuthors() {
 		return authors;
 	}
 
 	public void setAuthors(Set<Author> authors) {
 		this.authors = authors;
+	}
+	
+	
+
+	/**
+	 * @return the publisher
+	 */
+	public Publisher getPublisher() {
+		return publisher;
+	}
+
+	/**
+	 * @param publisher the publisher to set
+	 */
+	public void setPublisher(Publisher publisher) {
+		this.publisher = publisher;
 	}
 
 	@Override
@@ -105,9 +123,14 @@ public class Book
 		return true;
 	}
 
+	/* (non-Javadoc)
+	 * @see java.lang.Object#toString()
+	 */
 	@Override
 	public String toString() {
-		return "Book [id=" + id + ", title=" + title + ", isbn=" + isbn + ", publisher=" + publisher + ", authors="
-				+ authors + "]";
-	}	
+		return "Book [id=" + id + ", title=" + title + ", isbn=" + isbn + ", authors=" + authors + ", publisher="
+				+ publisher + "]";
+	}
+
+	
 }
