@@ -19,8 +19,12 @@ public class Publisher
 	private String address;
 	
 	@OneToMany(mappedBy = "publisher")
-	private Set<Book> books = new HashSet<>();
+	private Set<Book> books = new HashSet<>();				
 	
+	public Publisher() {
+		super();
+	}
+
 	public Publisher(String companyName, String address) {
 		super();
 		this.companyName = companyName;
