@@ -1,23 +1,27 @@
 package com.wint.controllers;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+
 import com.wint.services.GreetingService;
 
 /**
- * This is class is part of Dependency-Injection-without-Spring example.
  * 
  * @author peter
  *
  */
+@Controller
 public class ConstructorInjectedController {
 	private GreetingService greetingService;
 
-	// INJECTION
+	// Spring automatically Autowires and injects dependency
+	@Autowired // <- no need to do this, but it's a good habit
 	public ConstructorInjectedController(GreetingService greetingService) {
 		super();
 		this.greetingService = greetingService;
 	}
 	
-	String sayHello() {
+	public String sayHello() {
 		return greetingService.sayGreeting();
 	}
 
