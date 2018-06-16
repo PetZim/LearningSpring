@@ -18,9 +18,8 @@ public class DepInjDemoApplication {
 	public static void main(String[] args) {
 		ApplicationContext context = SpringApplication.run(DepInjDemoApplication.class, args);
 		MyController controller = (MyController) context.getBean("myController");
-		controller.hello();
-				
-		
+
+		System.out.println(context.getBean(MyController.class).sayHello());
 		System.out.println(context.getBean(PropertyInjectedController.class).sayHello()); 
 		System.out.println(context.getBean(SetterInjectedController.class).sayHello()); 
 		System.out.println(context.getBean(ConstructorInjectedController.class).sayHello());
