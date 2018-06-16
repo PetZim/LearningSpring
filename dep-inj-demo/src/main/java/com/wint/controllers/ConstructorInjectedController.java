@@ -1,6 +1,7 @@
 package com.wint.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 
 import com.wint.services.GreetingService;
@@ -16,7 +17,8 @@ public class ConstructorInjectedController {
 
 	// Spring automatically Autowires and injects dependency
 	@Autowired // <- no need to do this, but it's a good habit
-	public ConstructorInjectedController(GreetingService greetingService) {
+	public ConstructorInjectedController(
+			@Qualifier("constructorGreetingService") GreetingService greetingService) {
 		super();
 		this.greetingService = greetingService;
 	}
