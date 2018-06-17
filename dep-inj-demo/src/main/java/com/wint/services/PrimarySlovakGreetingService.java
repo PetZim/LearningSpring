@@ -12,16 +12,16 @@ import org.springframework.stereotype.Service;
  *
  */
 @Service
+@Profile("sk")
 @Primary
-@Profile("en")
-public class PrimaryGreetingService implements GreetingService {
+public class PrimarySlovakGreetingService implements GreetingService {
 
 	/* (non-Javadoc)
 	 * @see com.wint.services.GreetingService#sayGreeting()
 	 */
 	@Override
 	public String sayGreeting() {
-		return "Hello, from the Primary  Greeting Service!";
+		return "Toto je PrimarySlovakGreetingService";
 	}
 
 }
