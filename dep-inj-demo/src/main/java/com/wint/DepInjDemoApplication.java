@@ -1,8 +1,5 @@
 package com.wint;
 
-import static org.assertj.core.api.Assertions.contentOf;
-
-import org.omg.CORBA.CTX_RESTRICT_SCOPE;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
