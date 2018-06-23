@@ -11,10 +11,17 @@ import org.springframework.stereotype.Service;
  * @author peter
  *
  */
-@Service
-@Profile("sk")
-@Primary
+//Moved to GreetingServiceConfig.java
+//@Service
+//@Profile("sk")
+//@Primary
 public class PrimarySlovakGreetingService implements GreetingService {
+	
+	private GreetingRepository greetingRepository;
+	
+	public PrimarySlovakGreetingService(GreetingRepository greetingRepository) {
+		this.greetingRepository = greetingRepository;
+	}
 
 	/* (non-Javadoc)
 	 * @see com.wint.services.GreetingService#sayGreeting()
