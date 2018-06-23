@@ -5,8 +5,6 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 
 import com.wint.services.GreetingService;
-import com.wint.services.GreetingServiceImpl;
-
 @Controller
 public class SetterInjectedController {
 	private GreetingService greetingService;

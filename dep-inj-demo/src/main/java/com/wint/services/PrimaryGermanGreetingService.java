@@ -3,9 +3,9 @@
  */
 package com.wint.services;
 
-import org.springframework.context.annotation.Primary;
-import org.springframework.context.annotation.Profile;
-import org.springframework.stereotype.Service;
+//import org.springframework.context.annotation.Primary;
+//import org.springframework.context.annotation.Profile;
+//import org.springframework.stereotype.Service;
 
 /**
  * @author peter
@@ -17,6 +17,7 @@ import org.springframework.stereotype.Service;
 //@Profile("de")
 public class PrimaryGermanGreetingService implements GreetingService {
 
+	@SuppressWarnings("unused")
 	private GreetingRepository greetingRepository;
 	
 	public PrimaryGermanGreetingService(GreetingRepository greetingRepository) {

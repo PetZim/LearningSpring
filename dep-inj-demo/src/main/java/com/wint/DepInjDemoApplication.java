@@ -12,6 +12,7 @@ import com.wint.controllers.SetterInjectedController;
 @SpringBootApplication
 public class DepInjDemoApplication {
 
+	@SuppressWarnings("unused")
 	public static void main(String[] args) {
 		ApplicationContext context = SpringApplication.run(DepInjDemoApplication.class, args);
 		MyController controller = (MyController) context.getBean("myController");
