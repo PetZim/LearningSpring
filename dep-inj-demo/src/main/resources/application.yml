@@ -1,0 +1,15 @@
+guru:
+  jms:
+    username: JMS Username
+    password: JMS Pass
+    dburl: JMS/Url
+
+---
+
+spring:
+    profiles: de
+guru:
+    password: einzwei
+    url: guru/url.de
+    username: Hans
+        

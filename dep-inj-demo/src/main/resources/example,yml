@@ -1,0 +1,22 @@
+# YAML IS Yet Another Markup Language
+
+name: John
+
+names: 
+    - John
+    - Paul
+    - Ringo
+    
+pound_sign: "#" 
+
+book:
+    author: Phill Dick
+    publisher: smth
+    
+truth: yes
+
+another_truth: true
+
+false: no
+
+string_val: "This is string"

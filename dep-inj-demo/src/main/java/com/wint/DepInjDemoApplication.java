@@ -8,6 +8,8 @@ import com.wint.controllers.ConstructorInjectedController;
 import com.wint.controllers.MyController;
 import com.wint.controllers.PropertyInjectedController;
 import com.wint.controllers.SetterInjectedController;
+import com.wint.examplebeans.FakeDataSource;
+import com.wint.examplebeans.FakeJmsBroker;
 
 @SpringBootApplication
 public class DepInjDemoApplication {
@@ -17,9 +19,10 @@ public class DepInjDemoApplication {
 		ApplicationContext context = SpringApplication.run(DepInjDemoApplication.class, args);
 		MyController controller = (MyController) context.getBean("myController");
 
-		System.out.println(context.getBean(MyController.class).sayHello());
-		System.out.println(context.getBean(PropertyInjectedController.class).sayHello()); 
-		System.out.println(context.getBean(SetterInjectedController.class).sayHello()); 
-		System.out.println(context.getBean(ConstructorInjectedController.class).sayHello());
+		FakeDataSource fakeDataSource = (FakeDataSource) context.getBean(FakeDataSource.class);
+		FakeJmsBroker fakeJmsBroker = (FakeJmsBroker) context.getBean(FakeJmsBroker.class);
+		
+		System.out.println(fakeDataSource.getUser());
+		System.out.println(fakeJmsBroker.getPassword());
 	}
 }
